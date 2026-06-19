@@ -1,0 +1,107 @@
+Nexus Earth Technology Rules
+
+Core Rule
+
+All AI workers must follow this technology stack unless approved otherwise.
+
+---
+
+Game Engine
+
+Godot
+
+Reason:
+Free
+Open source
+No royalties
+
+---
+
+Game Language
+
+GDScript
+
+Reason:
+Native Godot language
+Fast development
+Easy maintenance
+
+---
+
+Backend
+
+Python
+
+Framework:
+FastAPI
+
+Purpose:
+Accounts
+Economy
+Multiplayer services
+APIs
+
+---
+
+Database
+
+PostgreSQL
+
+Provider:
+Supabase (Free Tier)
+
+Purpose:
+Players
+Items
+Properties
+Businesses
+Game Data
+
+---
+
+Website
+
+Framework:
+Next.js
+
+Language:
+TypeScript
+
+Purpose:
+Community
+Player Dashboard
+Marketplace
+Accounts
+
+---
+
+Source Control
+
+GitHub
+
+Rule:
+Everything must be stored in GitHub.
+
+---
+
+AI Rules
+
+ChatGPT:
+Planning and architecture
+
+Claude:
+Story and content
+
+Coding Agents:
+Code generation
+
+Lovable:
+Website generation
+
+---
+
+Development Rule
+
+Build small systems first.
+
+Never attempt to build the entire game in one task.
