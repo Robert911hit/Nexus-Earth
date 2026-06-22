@@ -2,40 +2,79 @@
 
 ## Architecture
 
-This folder is the Godot 4 client root for Nexus Earth. It follows the approved stack: Godot 4.x, GDScript, FastAPI backend integration points, PostgreSQL/Supabase data ownership, and GitHub source control.
+This folder is the Godot 4 client root for Nexus Earth.
+
+Technology stack:
+
+- Godot 4.x
+- GDScript
+- FastAPI backend integration points
+- PostgreSQL/Supabase data ownership
+- GitHub source control
 
 ## Folder Layout
 
-- `project.godot` - Godot project settings, main demo scene, input actions, and autoload registrations.
-- `scenes/` - Runtime scenes, including the first playable demo, player, NPCs, and UI.
+- `project.godot` - Godot project settings, main scene, input actions, and autoload registrations.
+- `scenes/` - Runtime scenes including playable demos, player scenes, NPCs, and UI.
 - `scripts/` - GDScript gameplay systems grouped by domain.
-- `assets/` - Godot-local imported art, audio, animation, and placeholder assets.
-- `ui/` - UI design notes, themes, and reusable presentation assets.
-- `data/` - JSON-driven local definitions mirrored from future authored databases.
-- `tests/` - Lightweight validation scripts and future Godot test scenes.
+- `assets/` - Godot imported assets, audio, models, textures, and placeholders.
+- `ui/` - UI design notes, themes, and reusable presentation components.
+- `data/` - JSON-driven game data such as dialogue and quests.
+- `tests/` - Validation tools and future automated testing.
 
 ## First Playable Prototype
 
-Open `res://scenes/demo/first_playable_demo.tscn` or run the project. The prototype includes a controllable player, Cael as an interactable NPC, JSON dialogue, BEG-001 quest acceptance, objective completion, quest completion popup, starter inventory, and Fringe reputation changes.
+The first playable prototype uses:
+
+- Player controller
+- Cael NPC interaction
+- JSON dialogue system
+- BEG-001 quest flow
+- Inventory system
+- Reputation system
+- Save/load system
+
+Main prototype scene:
+
+`res://scenes/demo/first_playable_demo.tscn`
 
 ## Controls
 
-- `WASD` - Move.
-- `Shift` - Sprint.
-- `E` - Interact with nearby NPCs.
-- `C` - Complete the BEG-001 demo objectives and trigger the quest completion flow.
-- `F5` - Save player, inventory, quest, and reputation state.
+- `WASD` - Move
+- `Shift` - Sprint
+- `E` - Interact with NPCs
+- `C` - Complete demo quest objectives
+- `F5` - Save game state
 
 ## System Boundaries
 
-- Player movement is local-authoritative for prototype work, but exposes serializable state for future multiplayer replication.
-- NPCs are Area3D interactables with stable IDs, display names, dialogue IDs, and schedule placeholders.
-- Dialogue is JSON-driven so writers can add NPC conversations without changing code.
-- Inventory supports add, remove, stacking, and save/load serialization.
-- Reputation tracks Fringe, Gray Line, and Solenne standing.
-- Saves are dictionary-based and versioned so FastAPI/Supabase sync can be added later.
-- Quests are data-driven and designed to read exported JSON generated from `story/quests/QUEST_DATABASE.md` or future database tables.
+- Player movement is designed for future multiplayer expansion.
+- NPC systems use stable IDs and interaction hooks.
+- Dialogue is JSON-driven for easy content expansion.
+- Inventory supports item storage and save/load.
+- Reputation tracks relationships with factions and locations.
+- Save systems are versioned for future FastAPI/Supabase synchronization.
+- Quest systems are data-driven and connected to future databases.
+
+## Multiplayer Readiness
+
+All gameplay systems are designed with:
+
+- Stable IDs
+- Serializable data
+- Expandable systems
+- Future backend synchronization
+
+This allows future connection between Godot, FastAPI, PostgreSQL/Supabase, and the Nexus Earth online world.
 
 ## Testing Instructions
 
-Until headless Godot CI is installed, validate JSON with Python, run `git diff --check`, and open `game/project.godot` locally in Godot 4.x to run `first_playable_demo.tscn`.
+Until automated Godot CI is added:
+
+1. Open the project in Godot 4.x.
+2. Run the main scene.
+3. Test player movement.
+4. Test NPC interaction.
+5. Test dialogue.
+6. Test quest completion.
+7. Test saving and loading.
