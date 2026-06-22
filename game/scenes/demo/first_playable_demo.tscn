@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/demo/demo_controller.gd" id="1_demo_controller"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://scenes/npc/cael_npc.tscn" id="3_cael"]
+[ext_resource type="PackedScene" path="res://scenes/ui/dialogue_panel.tscn" id="4_dialogue_panel"]
+[ext_resource type="PackedScene" path="res://scenes/ui/quest_panel.tscn" id="5_quest_panel"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
+size = Vector3(16, 0.2, 16)
+
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+size = Vector3(16, 0.2, 16)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
+albedo_color = Color(0.16, 0.18, 0.17, 1)
+
+[node name="FirstPlayableDemo" type="Node3D"]
+script = ExtResource("1_demo_controller")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-45, 35, 0)
+light_energy = 2.0
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_floor")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_floor")
+surface_material_override/0 = SubResource("StandardMaterial3D_floor")
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector3(0, 0.2, 4)
+
+[node name="CaelNPC" parent="." instance=ExtResource("3_cael")]
+position = Vector3(0, 0.2, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DialoguePanel" parent="CanvasLayer" instance=ExtResource("4_dialogue_panel")]
+visible = false
+offset_left = 32.0
+offset_top = 360.0
+
+[node name="QuestPanel" parent="CanvasLayer" instance=ExtResource("5_quest_panel")]
+
+[node name="InteractionPrompt" type="Label" parent="CanvasLayer"]
+offset_left = 32.0
+offset_top = 320.0
+offset_right = 520.0
+offset_bottom = 352.0
+text = "Press E to talk"
