@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/npc/npc_base.gd" id="1_npc_base"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_interaction"]
+radius = 2.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_cael"]
+radius = 0.35
+height = 1.75
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cael"]
+albedo_color = Color(0.2, 0.55, 0.9, 1)
+
+[node name="CaelNPC" type="Area3D"]
+script = ExtResource("1_npc_base")
+npc_id = "cael"
+display_name = "Cael"
+dialogue_id = "dlg_fringe_intro_cael"
+schedule_id = "cael_fringe_repair_stall"
+interaction_prompt = "Press E to talk"
+
+[node name="InteractionShape" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_interaction")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.875, 0)
+mesh = SubResource("CapsuleMesh_cael")
+surface_material_override/0 = SubResource("StandardMaterial3D_cael")
+
+[node name="NameLabel" type="Label3D" parent="."]
+text = "Cael"
+position = Vector3(0, 2.25, 0)

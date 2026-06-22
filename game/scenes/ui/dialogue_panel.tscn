@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/dialogue/dialogue_ui.gd" id="1_dialogue_ui"]
+
+[node name="DialoguePanel" type="Control"]
+script = ExtResource("1_dialogue_ui")
+
+[node name="SpeakerLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 32.0
+
+[node name="BodyLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 640.0
+offset_bottom = 160.0
+
+[node name="Choices" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 176.0
+offset_right = 640.0
+offset_bottom = 360.0
