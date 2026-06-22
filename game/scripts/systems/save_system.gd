@@ -67,27 +67,31 @@ func load_game(path: String = DEFAULT_SAVE_PATH) -> Dictionary:
 	return current_save
 
 
+func sync_from_autoloads() -> void:
+	_sync_from_autoloads()
+
+
 func _sync_from_autoloads() -> void:
 	if has_node("/root/InventoryManager"):
-		current_save["inventory"] = InventoryManager.get_save_data()
+		current_save["inventory"] = InventoryManager.serialize_inventory()
 
 	if has_node("/root/QuestManager"):
-		current_save["quests"] = QuestManager.get_save_data()
+		current_save["quests"] = QuestManager.serialize_progress()
 
 	if has_node("/root/ReputationManager"):
-		current_save["reputation"] = ReputationManager.get_save_data()
+		current_save["reputation"] = ReputationManager.serialize_reputation()
 
 
 
 func _apply_save_to_autoloads() -> void:
 	if has_node("/root/InventoryManager"):
-		InventoryManager.load_save_data(current_save.get("inventory", []))
+		InventoryManager.load_inventory(current_save.get("inventory", []))
 
 	if has_node("/root/QuestManager"):
-		QuestManager.load_save_data(current_save.get("quests", {}))
+		QuestManager.load_progress(current_save.get("quests", {}))
 
 	if has_node("/root/ReputationManager"):
-		ReputationManager.load_save_data(current_save.get("reputation", {}))
+		ReputationManager.load_reputation(current_save.get("reputation", {}))
 
 
 
