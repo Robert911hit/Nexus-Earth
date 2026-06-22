@@ -1,0 +1,20 @@
+{
+  "source": "story/quests/QUEST_DATABASE.md",
+  "quests": [
+    {
+      "id": "BEG-001",
+      "name": "Find Your Feet",
+      "chain": "BEG",
+      "objectives": [
+        {"id": "enter_fringe", "description": "Pass through the Solenne border checkpoint into The Fringe.", "required": 1},
+        {"id": "find_shelter", "description": "Locate basic shelter.", "required": 1},
+        {"id": "meet_cael", "description": "Speak with Cael at his repair stall.", "required": 1}
+      ],
+      "rewards": {
+        "currency": 50,
+        "contacts": ["cael"],
+        "unlocks": ["first_shelter"]
+      }
+    }
+  ]
+}
