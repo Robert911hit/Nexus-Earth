@@ -11,21 +11,41 @@
           "text": "I need work.",
           "next": "work",
           "events": [
-            {"type": "quest_signal", "action": "accept", "quest_id": "BEG-001"}
+            {
+              "type": "quest_signal",
+              "action": "accept",
+              "quest_id": "BEG-001"
+            }
           ]
         },
-        {"id": "ask_fringe", "text": "What is this place?", "next": "fringe"}
+        {
+          "id": "ask_fringe",
+          "text": "What is this place?",
+          "next": "fringe"
+        }
       ]
     },
     "work": {
       "speaker": "Cael",
-      "text": "Start small. Find shelter, buy supplies, then come back before someone else writes your story for you.",
-      "choices": [{"id": "end", "text": "Understood.", "next": "end"}]
+      "text": "Start small. Search the scrap crate beside the stall, then come back before someone else writes your story for you.",
+      "choices": [
+        {
+          "id": "end",
+          "text": "Understood.",
+          "next": "end"
+        }
+      ]
     },
     "fringe": {
       "speaker": "Cael",
       "text": "The Fringe is where Solenne stops pretending every life fits a form.",
-      "choices": [{"id": "ask_work_after", "text": "Then I need work.", "next": "work"}]
+      "choices": [
+        {
+          "id": "ask_work_after",
+          "text": "Then I need work.",
+          "next": "work"
+        }
+      ]
     }
   }
 }

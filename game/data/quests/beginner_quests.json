@@ -6,14 +6,33 @@
       "name": "Find Your Feet",
       "chain": "BEG",
       "objectives": [
-        {"id": "enter_fringe", "description": "Pass through the Solenne border checkpoint into The Fringe.", "required": 1},
-        {"id": "find_shelter", "description": "Locate basic shelter.", "required": 1},
-        {"id": "meet_cael", "description": "Speak with Cael at his repair stall.", "required": 1}
+        {
+          "id": "talk_to_cael",
+          "description": "Talk to Cael at his repair stall and accept BEG-001.",
+          "required": 1
+        },
+        {
+          "id": "search_scrap_crate",
+          "description": "Search the Scrap Crate for usable parts.",
+          "required": 1
+        },
+        {
+          "id": "return_to_cael",
+          "description": "Return to Cael after searching the Scrap Crate.",
+          "required": 1
+        }
       ],
       "rewards": {
         "currency": 50,
-        "contacts": ["cael"],
-        "unlocks": ["first_shelter"]
+        "reputation": {
+          "fringe": 10
+        },
+        "contacts": [
+          "cael"
+        ],
+        "unlocks": [
+          "first_shelter"
+        ]
       }
     }
   ]

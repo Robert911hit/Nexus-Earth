@@ -20,7 +20,8 @@ func create_empty_save() -> Dictionary:
 			"completed": {},
 			"failed": {}
 		},
-		"reputation": {}
+		"reputation": {},
+		"world": {}
 	}
 
 
